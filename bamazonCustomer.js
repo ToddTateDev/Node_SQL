@@ -1,6 +1,8 @@
+//IMPORT DEPENDENCIES
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 
+//MYSQL CONNECTION
 var connection = mysql.createConnection({
     host: "localhost",
     port: 8889,
@@ -14,6 +16,7 @@ connection.connect(function (err) {
     readProducts();
 });
 
+//PROGRAM FUNCTIONS
 function readProducts() {
     connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
